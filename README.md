@@ -1,4 +1,6 @@
 [![CI](https://github.com/talhag3/string-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/yourname/string-analyzer/actions/workflows/ci.yml)
+[![Latest Stable Version](https://poser.pugx.org/your-vendor/string-analyzer/v/stable)](https://packagist.org/packages/your-vendor/string-analyzer)
+[![Total Downloads](https://poser.pugx.org/your-vendor/string-analyzer/downloads)](https://packagist.org/packages/your-vendor/string-analyzer)
 
 # 📝 String Analyzer
 
