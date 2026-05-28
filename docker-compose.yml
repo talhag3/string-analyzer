@@ -1,0 +1,7 @@
+services:
+  php:
+    build: .
+    volumes:
+      - .:/app  # Live code sync
+    environment:
+      - XDEBUG_MODE=coverage

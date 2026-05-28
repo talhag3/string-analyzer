@@ -1,0 +1,25 @@
+{
+  "name": "talhag3/string-analyzer",
+  "description": "A simple PHP package that analyzes string composition",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Talhag3\\StringAnalyzer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Talhag3\\StringAnalyzer\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^8.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.5"
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
