@@ -2,6 +2,14 @@ services:
   php:
     build: .
     volumes:
-      - .:/app  # Live code sync
+      - .:/app
     environment:
-      - XDEBUG_MODE=coverage
+      - XDEBUG_MODE=debug,coverage
+    # 🐧 Linux-Specific Host Routing (macOS/Windows: safe to remove or ignore)
+    # Docker Desktop auto-resolves `host.docker.internal` to your host machine's IP.
+    # Native Linux Docker does not. This mapping bridges the container network back 
+    # to your host, allowing Xdebug to route DBGp connections to your IDE on port 9003.
+    # `host-gateway` is a Docker magic variable that dynamically resolves to the 
+    # correct host IP (no hardcoding 172.17.0.1 needed).
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

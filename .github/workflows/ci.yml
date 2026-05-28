@@ -1,0 +1,48 @@
+# 🔄 When to run this workflow
+name: CI
+
+on:
+  push:
+    branches: [ main ]          # Run on push to main branch
+  pull_request:
+    branches: [ main ]          # Run on PRs targeting main
+
+# 💼 What to execute
+jobs:
+  test:
+    runs-on: ubuntu-latest      # Use GitHub's latest Ubuntu runner
+
+    steps:
+      # 1️⃣ Clone your repo into the runner
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      # 2️⃣ Set up PHP + extensions on the runner
+      - name: 🐘 Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, intl, zip, xdebug
+          coverage: xdebug       # Enable Xdebug for coverage reports
+          tools: composer:v2
+
+      # 3️⃣ Install Composer dependencies
+      - name: 📦 Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      # 4️⃣ Run PHPUnit tests
+      - name: 🧪 Run tests
+        run: vendor/bin/phpunit
+
+      # 5️⃣ Run tests with coverage (optional)
+      - name: 📊 Generate coverage report
+        run: php -d xdebug.mode=coverage vendor/bin/phpunit --coverage-clover clover.xml
+
+      # 6️⃣ Upload coverage as artifact (downloadable from GitHub UI)
+      - name: 📤 Upload coverage
+        uses: actions/upload-artifact@v4
+        if: always()             # Upload even if tests fail
+        with:
+          name: coverage-report
+          path: clover.xml
+          retention-days: 7
