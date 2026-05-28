@@ -1,3 +1,5 @@
+[![CI](https://github.com/talhag3/string-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/yourname/string-analyzer/actions/workflows/ci.yml)
+
 # 📝 String Analyzer
 
 A minimal PHP library that analyzes a given string and returns counts for characters, words, spaces, and special characters.
