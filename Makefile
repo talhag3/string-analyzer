@@ -23,10 +23,13 @@ shell:
 # 🔹 Exact version: make release V=1.0.0
 release:
 	@if [ -z "$(V)" ]; then echo "❌ Usage: make release V=1.0.0"; exit 1; fi
-	@if [ -n "$$(git status --porcelain)" ]; then echo "❌ Error: Working tree is dirty. Commit or stash changes first."; exit 1; fi
 	@echo "📦 Preparing release v$(V)..."
-	@git add -A
-	@git commit -m "chore: release v$(V)"
+	@if [ -n "$$(git status --porcelain)" ]; then \
+		git add -A && \
+		git commit -m "chore: release v$(V)"; \
+	else \
+		echo "✅ Working tree clean. Skipping commit."; \
+	fi
 	@git tag -a v$(V) -m "Release v$(V)"
 	@git push origin master --tags
 	@echo "✅ Published v$(V) to GitHub. Packagist will auto-sync."
