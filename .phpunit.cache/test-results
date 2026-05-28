@@ -1,1 +1,0 @@
-{"version":2,"defects":[],"times":{"Talhag3\\StringAnalyzer\\Tests\\StringAnalyzerTest::testAnalyzeNormalString":0.029,"Talhag3\\StringAnalyzer\\Tests\\StringAnalyzerTest::testAnalyzeEmptyString":0.001,"Talhag3\\StringAnalyzer\\Tests\\StringAnalyzerTest::testAnalyzeSpecialCharsOnly":0.001}}
