@@ -3,9 +3,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]          # Run on push to main branch
+    branches: [ master ]          # Run on push to master branch
   pull_request:
-    branches: [ main ]          # Run on PRs targeting main
+    branches: [ master ]          # Run on PRs targeting master
 
 # 💼 What to execute
 jobs:
